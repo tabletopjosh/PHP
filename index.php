@@ -1,44 +1,50 @@
 <?php 
-    $websiteTitle = "Josh's website";
+    // Variables of different data types
+    $websiteTitle = "Jake's website"; // String
+    $yearFounded = 2021; // Integer
+    $isUserLoggedIn = true; // Boolean
 
-    // Define the header component
-    function renderHeader($title) {
-        echo "<header>";
-        echo "<h1>$title</h1>";
-        echo "</header>";
+    // Custom function to display a welcome message
+    function displayWelcomeMessage($isUserLoggedIn) {
+        if ($isUserLoggedIn) {
+            return "<h1>Welcome back, Josh!</h1>";
+        } else {
+            return "<h1>Welcome to our website!</h1>";
+        }
     }
 
-    // Define the footer component
-    function renderFooter($year) {
-        echo "<footer>";
-        echo "&copy; Copyright $year All rights reserved";
-        echo "</footer>";
-    }
-
-    // Define the parent component
-    function renderParentComponent($title) {
-        $currentYear = date("Y");
-        
-        // Pass props to the child components
-        renderHeader($title);
-        echo "<div>";
-        echo "<p>Welcome to the website. Here is some content.</p>";
-        echo "</div>";
-        renderFooter($currentYear);
-    }
+    // One-dimensional array
+    $navigationMenu = ["Home", "About Us", "Services", "Contact"];
 ?> 
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $websiteTitle ?></title>
+        <title><?php echo $websiteTitle; ?></title>
     </head>
     <body>
         <?php 
-            // Render the parent component, which in turn renders child components
-            renderParentComponent($websiteTitle); 
+            // Display welcome message
+            echo displayWelcomeMessage($isUserLoggedIn); 
+        ?>
+
+        <h1>My website</h1>
+
+        <nav>
+            <ul>
+                <?php
+                    // Display navigation menu using the array
+                    foreach ($navigationMenu as $menuItem) {
+                        echo "<li>$menuItem</li>";
+                    }
+                ?>
+            </ul>
+        </nav>
+
+        <?php 
+            echo "&copy; Copyright " .  date("Y"). " All rights reserved"; 
+            echo "<br>Website founded in $yearFounded";
         ?>
     </body>
 </html>
