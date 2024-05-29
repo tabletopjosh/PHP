@@ -1,0 +1,40 @@
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.main-content p {
+  font-size: 18px;
+}
+
+.sample-image {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border: 2px solid #0288d1;
+  border-radius: 8px;
+}
+
+.counter-section {
+  margin-top: 20px;
+}
+
+.counter-section p {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.counter-section button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0288d1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.counter-section button:hover {
+  background-color: #0277bd;
+}

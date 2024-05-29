@@ -1,6 +1,5 @@
 <?php 
-    echo "<h1>Hello Josh</h1>"; 
-    $websiteTitle ="Josh's website";
+    $websiteTitle = "Josh's website";
 
     // Define the header component
     function renderHeader($title) {
@@ -10,10 +9,22 @@
     }
 
     // Define the footer component
-    function renderFooter() {
+    function renderFooter($year) {
         echo "<footer>";
-        echo "&copy; Copyright " . date("Y"). " All rights reserved";
+        echo "&copy; Copyright $year All rights reserved";
         echo "</footer>";
+    }
+
+    // Define the parent component
+    function renderParentComponent($title) {
+        $currentYear = date("Y");
+        
+        // Pass props to the child components
+        renderHeader($title);
+        echo "<div>";
+        echo "<p>Welcome to the website. Here is some content.</p>";
+        echo "</div>";
+        renderFooter($currentYear);
     }
 ?> 
 
@@ -26,19 +37,8 @@
     </head>
     <body>
         <?php 
-            // Render the header component
-            renderHeader("Josh's Website"); 
-        ?>
-
-        <!-- Main content of the website -->
-        <div>
-            <p>Welcome to the website. Here is some content.</p>
-        </div>
-
-        <?php 
-            // Render the footer component
-            renderFooter(); 
+            // Render the parent component, which in turn renders child components
+            renderParentComponent($websiteTitle); 
         ?>
     </body>
 </html>
-

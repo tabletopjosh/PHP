@@ -1,0 +1,10 @@
+.app {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #e0f7fa; /* Light blue background */
+  color: #01579b; /* Dark blue text */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
